@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <title>聚宝盆</title>
+    <link rel="stylesheet" href="./lib/weui/weui.min.css"/>
+    <link rel="stylesheet" href="./css/example.css"/>
+    <script>
+        const oHtml = document.getElementsByTagName('html')[0]
+        const width = oHtml.clientWidth;
+        // 320px的屏幕基准像素为12px
+        oHtml.style.fontSize = 12 * (width / 320) + "px";
+    </script>
+</head>
+<body>
+<div class="weui_grids main">
+    <div class="weui_grid">
+        <div class="weui_grid_icon">
+            <img src="./images/mobile_bg.png" class="match_parent" alt="">
+        </div>
+        <p class="weui_grid_label"></p>
+    </div>
+
+    <img src="./images/14878A.gif" alt="" class="logo">
+
+    <div class="access access_1" id="access_1">
+        <span class="response_time" id="response_time1">测速中</span>
+        <br>
+        <span class="access_name">官方线路1</span>
+    </div>
+
+    <div class="access access_2" id="access_2">
+        <span class="response_time" id="response_time2">测速中</span>
+        <br>
+        <span class="access_name">官方线路2</span>
+    </div>
+
+    <div class="access access_vip" id="access_vip">
+        <span class="response_time" id="response_time3">测速中</span>
+        <br>
+        <span class="access_name access_name_vip">贵宾VIP专线</span>
+    </div>
+
+    <div class="tip">
+        <span class="tip_text">温馨提示：反应时间越小，网站速度越快，</span>
+        <br>
+        <span class="tip_text" >越快的网址排在越左面．</span>
+    </div>
+    <div class="weui-flex nav">
+        <div class="weui-flex__item"><a class="nav_item bg_enter"></a></div>
+        <div class="weui-flex__item"><a class="nav_item bg_server"></a></div>
+        <div class="weui-flex__item"><a class="nav_item bg_reload"></a></div>
+    </div>
+</div>
+
+<script language="javascript">
+    tim=1
+    setInterval("tim++",100)
+    b=1
+    var autourl = new Array();
+    autourl[1] = "http://www.14878a.com/";
+    autourl[2] = "http://www.14878b.com/";
+    autourl[3] = "http://www.14878c.com/";
+    autourl[4] = "http://www.14878d.com/";
+    autourl[5] = "http://www.14878e.com/";
+    autourl[6] = "http://www.14878f.com/";
+    autourl[7] = "http://www.14878g.com/";
+    autourl[8] = "http://www.14878h.com/";
+    autourl[9] = "http://www.14878i.com/";
+    autourl[10] = "http://www.14878g.com/";
+    autourl[11] = "http://www.14878k.com/";
+    autourl[12] = "http://www.14878l.com/";
+    autourl[13] = "http://www.14878m.com/";
+    autourl[14] = "http://www.14878n.com/";
+    autourl[15] = "http://www.14878o.com/";
+    autourl[16] = "http://www.14878p.com/";
+    autourl[17] = "http://www.14878q.com/";
+    autourl[18] = "http://www.14878r.com/";
+    autourl[19] = "http://www.14878s.com/";
+    autourl[20] = "http://www.14878t.com/";
+    autourl[21] = "http://www.14878u.com/";
+    autourl[22] = "http://www.14878v.com/";
+    autourl[23] = "http://www.14878w.com/";
+    autourl[24] = "http://www.14878x.com/";
+    autourl[25] = "http://www.14878y.com/";
+    autourl[26] = "http://www.14878z.com/";
+
+
+    function butt(){
+        document.write("<form name=autof style='padding:0px; margin:0px;display: none;'>")
+        for (var i = 1; i < autourl.length; i++) document.write("<input type=text name=txt" + i + " size=25 style='color:#999;' value=测试中…> =》<input type=text name=url" + i + " size=40> =》<input type=button value=GO onclick=window.open(this.form.url" + i + ".value)><br>")
+        document.write("<input onclick='window.location.reload()' type=submit value='刷新' style='margin-top:10px'></form>")
+    }
+    butt()
+    function auto(url){
+        if(b>3){
+            return null;
+        }
+
+        document.forms[0]["url"+b].value=url
+        if(tim>200)
+        {document.forms[0]["txt"+b].value="网址"+b+"链接超时"
+            if(b===1){
+                document.getElementById('response_time1').innerText = "超时请重试"
+            }else if(b===2){
+                document.getElementById('response_time2').innerText = "超时请重试"
+            }else if(b===3){
+                document.getElementById('response_time3').innerText = "超时请重试"
+            }
+        }
+        else
+        { document.forms[0]["txt" + b].value = "网址" + b + ": 访问速度" + tim * 10 + "ms";
+
+            if(b===1){
+                document.getElementById('response_time1').innerText = tim * 10 + "ms"
+                document.getElementById('access_1').setAttribute('onclick', 'window.open("'+url+'")')
+            }else if(b===2){
+                document.getElementById('response_time2').innerText = tim * 10 + "ms"
+                document.getElementById('access_2').setAttribute('onclick', 'window.open("'+url+'")')
+            }else if(b===3){
+                document.getElementById('response_time3').innerText = tim * 10 + "ms"
+                document.getElementById('access_vip').setAttribute('onclick', 'window.open("'+url+'")')
+            }
+        }
+        b++
+
+
+
+
+    }
+    function run(){for(var i=1;i<autourl.length;i++)document.write("<img src="+autourl[i]+"/"+Math.random()+" width=1 height=1 onerror=auto('"+autourl[i]+"') style='display:none'>")}
+    run()
+</script>
+
+</body>
+</html>
